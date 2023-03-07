@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <!-- Add custom stylesheet -->
+    <style>
+      *{
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      #clock {
+        font-size: 3rem;
+        text-align: center;
+        margin: 2rem auto;
+        width: 15rem;
+        height: 4rem;
+        line-height: 4rem;
+        border-radius: 0.5rem;
+        background-color: #ffffff;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock"></div>
+    <script>
+      // Function to update the clock every second
+      function updateClock() {
+        let now = new Date();
+        let hours = now.getHours().toString().padStart(2, '0');
+        let minutes = now.getMinutes().toString().padStart(2, '0');
+        let seconds = now.getSeconds().toString().padStart(2, '0');
+        let time = `${hours}:${minutes}:${seconds}`;
+        document.getElementById('clock').textContent = time;
+        setTimeout(updateClock, 1000);
+      }
+      updateClock(); // Call the function initially to avoid a delay
+    </script>
+  </body>
+</html>
